@@ -45,4 +45,75 @@
 
 #include <iostream>
 using namespace std;
+// =============================================================================
+// PROGRAMMING FUNDAMENTALS — Assignment 2
+// =============================================================================
+//
+// TASK: Student Grade System
+//
+// Write a C++ program that reads a student's score and outputs the
+// corresponding letter grade based on the scale below.
+//
+// Grading Scale:
+//   Score 80 – 100  →  Grade A
+//   Score 70 – 79   →  Grade B
+//   Score 60 – 69   →  Grade C
+//   Score 50 – 59   →  Grade D
+//   Score below 50  →  Grade F
+//
+// =============================================================================
 
+#include <iostream>
+using namespace std;
+
+// Function to determine the grade
+char getGrade(int score)
+{
+    // Validate score
+    if (score < 0 || score > 100)
+    {
+        return '\0';
+    }
+
+    if (score >= 80)
+    {
+        return 'A';
+    }
+    else if (score >= 70)
+    {
+        return 'B';
+    }
+    else if (score >= 60)
+    {
+        return 'C';
+    }
+    else if (score >= 50)
+    {
+        return 'D';
+    }
+    else
+    {
+        return 'F';
+    }
+}
+
+int main()
+{
+    int score;
+
+    cout << "Enter student score (0-100): ";
+    cin >> score;
+
+    char grade = getGrade(score);
+
+    if (grade == '\0')
+    {
+        cout << "Error: Score must be between 0 and 100." << endl;
+    }
+    else
+    {
+        cout << "Grade: " << grade << endl;
+    }
+
+    return 0;
+}
